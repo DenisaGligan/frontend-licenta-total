@@ -1,0 +1,63 @@
+<div *ngIf="currentProduct" class="edit-form">
+    <h4>Product</h4>
+    <form>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="type"
+                [(ngModel)]="currentProduct.type"
+                name="type"
+            />
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="name"
+                [(ngModel)]="currentProduct.name"
+                name="name"
+            />
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="price"
+                [(ngModel)]="currentProduct.price"
+                name="price"
+            />
+        </div>
+        <div class="form-group">
+            <label for="imgUrl">ImgURL</label>
+            <input 
+                type="text"
+                class="form-control"
+                id="imgUrl"
+                [(ngModel)]="currentProduct.imgUrl"
+                name="imgUrl"
+            />
+        </div>
+        
+       
+    </form>
+    <button class="badge badge-danger mr-2" (click)="deleteProduct()">
+        Delete
+    </button>
+    
+      <button type="submit" class="badge badge-success" (click)="updateProduct()">
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    
+    <div *ngIf="!currentProduct">
+      <br />
+      <p>Cannot access this Product...</p>
+    </div>
+    <div class="bt">
+        <button type="button" class="btn btn-info" (click)="goBack()">Back</button>
+    </div>

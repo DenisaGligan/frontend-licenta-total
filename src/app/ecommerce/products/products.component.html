@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<div class="form-group">
+    <div class="inner-addon left-addon">
+        
+    <i class="glyphicon glyphicon-search"></i>
+    <input class="form-control" type="text" name="search" [(ngModel)]="name" autocomplete="off" placeholder="  Start searching for a product by name">
+</div>
+</div>
+<div class="row card-deck">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders | filter:name">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4>{{order.product.name}}</h4>
+            </div>
+            <div class="card-body">
+
+                <a href="#"><img class="card-img-top" src={{order.product.imgUrl}} alt=""></a>
+                <h5 class="card-title">{{order.product.price}} RON/KG</h5>
+                <div class="row">
+                    <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                        <input id="quantity" type="number" min="0" class="form-control" [(ngModel)]=order.quantity>
+                    </div>
+                    <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                        <button  type="button" class="btn btn-info btn-sm" (click)="addToCart(order)"
+                                [disabled]="order.quantity <= 0" > Add To Cart <span class="glyphicon glyphicon-shopping-cart"></span>
+                        </button>
+                    </div>
+                    <div class="col-12" *ngIf="isProductSelected(order.product)">
+                        <button class="btn btn-primary btn-block"
+                                (click)="removeFromCart(order)"> Remove From Cart<span class="glyphicon glyphicon-shopping-cart ml-1" ></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

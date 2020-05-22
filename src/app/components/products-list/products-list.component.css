@@ -1,0 +1,60 @@
+.list {
+  max-width: 960px;
+  margin: auto;
+  color: #405065;
+  text-align: center;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+}
+.bodybg-color {
+  background-color: #ccc;
+}
+
+.form-group{
+ 
+  padding: 30px;
+  max-width: 500px;
+  margin:auto;
+}
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+  margin: auto;
+  text-align: center;
+}
+
+.list-group-item{
+  box-shadow: 0 5px 40px #B0C1D9;
+}
+.badge:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.badge{
+  cursor: pointer;
+}
+div.imgProduct img{
+  width: 100%;
+  height: auto;
+  margin:auto;
+}
+div.imgProduct{
+    margin: auto;
+    
+    width: 300px;
+    text-align: center;
+}
+
+.detailsProduct{
+  text-align: center;
+}
+
+
+
+
+
+
+
+  
