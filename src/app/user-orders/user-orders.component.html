@@ -1,0 +1,35 @@
+
+<div class="list row">
+  <div class="col-md-12">
+    <div class="form-group">
+
+      <i class="glyphicon glyphicon-search"></i>
+      <input class="form-control" type="text" name="search" [(ngModel)]="dateCreated" autocomplete="off" placeholder="&#61442;  Start searching for an order date">
+    </div>
+  </div>
+  <div class="col-md-12">
+    <h4>Orders List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let order of orders | filter : dateCreated ">
+
+          <strong>ID Order:{{ order.id }}
+          Date: {{order.dateCreated}}
+          Status: {{ order.status }}
+          Adress: {{ order.adress }}
+          Telephone: {{ order.telephone }}</strong>
+          
+          <ul>
+              <li *ngFor ="let orderProduct of order.orderProducts">
+                  {{ orderProduct.product.name }} 
+                  <img class="card-img-top" src={{orderProduct.product.imgUrl}}  alt="">
+                 Price: {{ orderProduct.product.price }}
+                  Quantity: {{ orderProduct.quantity }}  
+              </li>
+          </ul>
+          TOTAL: {{ order.totalOrderPrice}}
+      </li>
+      </ul>
+    
+  </div>

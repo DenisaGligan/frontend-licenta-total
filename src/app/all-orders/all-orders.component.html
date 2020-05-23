@@ -1,1 +1,43 @@
-<p>all-orders works!</p>
+
+<div class="list row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <input class="form-control" type="text" name="search" [(ngModel)]="status" autocomplete="off" placeholder="&#61442;  Start searching for an order status">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Orders List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let order of orders | filter:status; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveOrder(order, i)"
+        >
+        <strong>ID Order:{{ order.id }}
+            Date: {{order.dateCreated}}
+            
+            Adress: {{ order.adress }}
+            Telephone: {{ order.telephone }}
+            Status: {{ order.status }}</strong>
+            
+            <ul>
+                <li *ngFor ="let orderProduct of order.orderProducts">
+                    {{ orderProduct.product.name }} 
+                    <img class="card-img-top" src={{orderProduct.product.imgUrl}}  alt="">
+                   Price: {{ orderProduct.product.price }}
+                    Quantity: {{ orderProduct.quantity }}  
+                </li>
+            </ul>
+            TOTAL: {{ order.totalOrderPrice}}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="col-md-6">
+  
+        <button type="submit" class="badge badge-success" (click)="updateOrder()">
+            Update
+          </button>
+          <p>{{ message }}</p>
+    </div>

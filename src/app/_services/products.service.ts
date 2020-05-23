@@ -26,6 +26,9 @@ export class ProductsService {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
+  getByType(type){
+    return this.http.get(`${baseUrl}/${type}`);
+  }
   getFruits(){
     return this.http.get(fruitUrl);
   }

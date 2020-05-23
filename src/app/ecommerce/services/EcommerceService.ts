@@ -3,6 +3,7 @@ import {ProductOrders} from "../models/product-orders.model";
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from "@angular/core";
 import {ProductOrder} from "../models/product-order.model";
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class EcommerceService {
@@ -36,6 +37,15 @@ export class EcommerceService {
     getAllOrders(){
         return this.http.get(this.ordersUrl);
     }
+
+    getAllOrdersById(id) {
+        return this.http.get(`${this.ordersUrl}/${id}`);
+    }
+
+    updateOrderStatus(id, data): Observable<any> {
+        return this.http.put(`${this.ordersUrl}/${id}`, data);
+      }
+    
 
     set SelectedProductOrder(value: ProductOrder) {
         this.productOrder = value;

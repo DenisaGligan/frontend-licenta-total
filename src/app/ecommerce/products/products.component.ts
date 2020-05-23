@@ -5,6 +5,7 @@ import {Subscription} from "rxjs/internal/Subscription";
 import {ProductOrders} from "../models/product-orders.model";
 import {Product} from "../models/product.model";
 import { ProductsService } from 'src/app/_services/products.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -20,14 +21,18 @@ export class ProductsComponent implements OnInit {
   sub: Subscription;
   productSelected: boolean = false;
   name;
+  type: string;
+  myForm: FormGroup;
 
-  constructor(private ecommerceService: EcommerceService, private productService: ProductsService) {
+  constructor(private formBuilder: FormBuilder, private ecommerceService: EcommerceService, private productService: ProductsService) {
   }
 
   ngOnInit() {
       this.productOrders = [];
       this.loadProducts();
       this.loadOrders();
+      this.myForm = this.formBuilder.group({
+        productType: ['']});
   }
 
   addToCart(order: ProductOrder) {
@@ -62,7 +67,7 @@ export class ProductsComponent implements OnInit {
         (products: any[]) => {
             this.products = products;
             this.products.forEach(product => {
-                this.productOrders.push(new ProductOrder(product, 0,'',''));
+                this.productOrders.push(new ProductOrder(product, 0));
             })
         },
         (error) => console.log(error)
@@ -81,6 +86,24 @@ export class ProductsComponent implements OnInit {
       this.ecommerceService.ProductOrders.productOrders = [];
       this.loadOrders();
       this.productSelected = false;
+  }
+
+  getAllByType(){
+    this.type = this.myForm.get('productType').value;
+    const data2 = this.myForm.getRawValue();
+    console.log(data2);
+    console.log(this.type);
+    this.productService.getByType(this.type)
+    .subscribe(
+        (products: any[]) => {
+            this.products = products;
+            this.products.forEach(product => {
+                this.productOrders.push(new ProductOrder(product, 0));
+            })
+        },
+        (error) => console.log(error)
+    );
+
   }
 
 }
