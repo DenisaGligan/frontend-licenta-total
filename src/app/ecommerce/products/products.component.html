@@ -8,6 +8,7 @@
     <i class="glyphicon glyphicon-search"></i>
     <input class="form-control" type="text" name="search" [(ngModel)]="name" autocomplete="off" placeholder="  Start searching for a product by name">
 </div>
+
 </div>
 <div class="row card-deck">
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders | filter:name">

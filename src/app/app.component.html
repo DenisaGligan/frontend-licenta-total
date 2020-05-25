@@ -11,20 +11,29 @@
         <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
       </li>
     -->
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!showAdminBoard">
         <!--<a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">All Products</a>-->
         <a href="/ecommerce" class="nav-link" *ngIf="isLoggedIn" routerLink="ecommerce">All Products</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!showAdminBoard">
         <a href="/fruits" class="nav-link" *ngIf="isLoggedIn" routerLink="fruits">Fruits</a>
-      </li><li class="nav-item">
+      </li>
+      <li class="nav-item" *ngIf="!showAdminBoard"> 
         <a href="/vegetables" class="nav-link" *ngIf="isLoggedIn" routerLink="vegetables">Vegetables</a>
       </li>
+      <li class="nav-item" *ngIf="!showAdminBoard">
+        <a href="/userOrders" class="nav-link" *ngIf="isLoggedIn" routerLink="userOrders">Your Orders</a>
+      </li>
+      
+    
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a routerLink="products" class="nav-link">Details Products</a>
+        <a routerLink="products" class="nav-link">All Products</a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
         <a routerLink="add" class="nav-link">Add Product</a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a routerLink="orders" class="nav-link">All Orders</a>
       </li>
     </ul>
 
