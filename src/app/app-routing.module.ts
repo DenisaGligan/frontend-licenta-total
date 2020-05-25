@@ -16,6 +16,7 @@ import { VegetablesComponent } from './vegetables/vegetables.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
+import { OrdersComponent } from './ecommerce/orders/orders.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'ecommerce', component: EcommerceComponent},
   { path: 'userOrders', component: UserOrdersComponent},
   { path: 'orders', component: AllOrdersComponent},
+  { path: 'cart', component: OrdersComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 

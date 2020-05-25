@@ -83,6 +83,7 @@ export class OrdersComponent implements OnInit {
         });
     }
     goBack(){
-        window.history.back();      }
+       // window.history.back(); 
+    this.paid = false;     }
       
 }

@@ -42,6 +42,7 @@ export class EcommerceComponent implements OnInit {
 
     finishOrder(orderFinished: boolean) {
         this.orderFinished = orderFinished;
+        
     }
 
     reset() {
