@@ -10,8 +10,22 @@
                 <div class="form-group">
                     <label for="productType">Product Type</label>
                     <input (ngModelChange)="checkInput()" type="text" id="productType" formControlName="productType" class="form-control" placeholder="fruits/vegetables">
+                    <div
+                        class="alert alert-danger"
+                        role="alert"
+                        *ngIf="!myForm.get('productType').valid && submitted && messageReq">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        Type required!
+                    </div>
+                    <div
+                        class="alert alert-danger"
+                        role="alert"
+                        *ngIf="messageType && submitted"
+                        ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        Type must be 'fruits or vegetables'!
+                    </div>
                 </div>
-                <button class="btn btn-info btn-block" ng-disabled="myForm.$invalid">Submit</button>
+                <button class="btn btn-info btn-block" >Submit</button>
                 </form>
             </div>
             <!--<button class="btn btn-primary btn-block" (click)="getAllByType()">Filter by Type</button>-->

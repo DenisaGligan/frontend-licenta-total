@@ -15,6 +15,9 @@ export class EcommerceComponent implements OnInit {
     orderFinished = false;
     filterVisible=false;
     name;
+    submitted = false;
+    messageType = false;
+    messageReq = false;
 
     myForm: FormGroup;
     
@@ -32,7 +35,7 @@ export class EcommerceComponent implements OnInit {
 
     ngOnInit() {
       this.myForm = this.formBuilder.group({
-        productType: ['']});
+        productType: ['',Validators.required]});
     }
 
     toggleCollapsed(): void {
@@ -48,9 +51,23 @@ export class EcommerceComponent implements OnInit {
     }
 
     getAllByType(){
+      
       let type=this.myForm.get('productType').value;
+      this.submitted = true;
+      if(type == "fruits" || type == "vegetables"){
+        this.messageReq = false;
       this.productsC.getAllByType(type);
-
+      this.messageType = false;
+      }
+      else if( type == '') {
+        this.messageReq = true;
+        this.messageType = false;
+      }
+      else {
+        this.messageType = true;
+        this.messageReq = false;
+      }
+      
     }
 
     goBack(){
@@ -59,6 +76,7 @@ export class EcommerceComponent implements OnInit {
     }
 
     checkInput(){
+      this.submitted = false;
       let type=this.myForm.get('productType').value;
       console.log('checkInp')
       if (type=='')

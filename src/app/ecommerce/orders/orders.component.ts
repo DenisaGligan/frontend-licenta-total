@@ -22,6 +22,7 @@ export class OrdersComponent implements OnInit {
     hasErr = false;
     errMessage = '';
     currentUser;
+    pattern = '07[0-9]{8}'
 
     myForm: FormGroup;
 
@@ -40,7 +41,7 @@ export class OrdersComponent implements OnInit {
 
         this.myForm = this.formBuilder.group({
             adress: ['', Validators.required],
-            telephone: ['',[ Validators.required, Validators.minLength(10)]]
+            telephone: ['',[ Validators.required, Validators.minLength(10), Validators.pattern(this.pattern)]]
           });
     }
 
