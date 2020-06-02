@@ -3,7 +3,7 @@
     margin: auto;
     color: #405065;
     text-align: center;
-    padding-top: 30px;
+    
     padding-left: 10px;
     padding-right: 10px;
     
@@ -14,10 +14,11 @@
   
   .form-group{
    
-    padding: 30px;
+    padding: 20px;
     max-width: 500px;
     margin:auto;
   }
+ 
   
   .form-control {
     box-shadow: 0 10px 40px 0 #B0C1D9;
@@ -29,6 +30,12 @@
     box-shadow: 0 5px 40px #B0C1D9;
   }
 
+  .col-md-10{
+    padding-top:20px ;
+  }
+.col-md-2{
+  padding-top: 20px;
+}
   
   .detailsOrder{
     text-align: center;
@@ -37,3 +44,27 @@
       width: 100px;
       height: 100px;
   }
+  .inner-addon { 
+    position: relative; 
+}
+
+.badge{
+  width: 100px;
+  padding: 15px;
+  background-color: darkcyan;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  color:darkcyan;
+}
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }

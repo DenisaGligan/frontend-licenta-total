@@ -8,6 +8,8 @@ const fruitUrl= 'http://localhost:8080/api/products/fruits';
 
 const vUrl= 'http://localhost:8080/api/products/vegetables';
 
+const typeUrl = 'http://localhost:8080/api/productsby';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -27,7 +29,7 @@ export class ProductsService {
   }
 
   getByType(type){
-    return this.http.get(`${baseUrl}/${type}`);
+    return this.http.get(`${typeUrl}/${type}`);
   }
   getFruits(){
     return this.http.get(fruitUrl);

@@ -62,6 +62,7 @@ export class ProductsComponent implements OnInit {
   }
 
   loadProducts() {
+      this.productOrders=[];
     this.ecommerceService.getAllProducts()
     .subscribe(
         (products: any[]) => {
@@ -88,12 +89,13 @@ export class ProductsComponent implements OnInit {
       this.productSelected = false;
   }
 
-  getAllByType(){
-    this.type = this.myForm.get('productType').value;
+  getAllByType(type:string){
+    this.productOrders=[];
+   // this.type = this.myForm.get('productType').value;
     const data2 = this.myForm.getRawValue();
     console.log(data2);
-    console.log(this.type);
-    this.productService.getByType(this.type)
+    console.log(type);
+    this.productService.getByType(type)
     .subscribe(
         (products: any[]) => {
             this.products = products;

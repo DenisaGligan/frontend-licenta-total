@@ -1,5 +1,9 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <div *ngIf="currentProduct" class="edit-form">
-    <h4>Product</h4>
+    <h4><strong>Product Details</strong></h4>
     <form>
         <div class="form-group">
             <label for="type">Type</label>
@@ -44,7 +48,7 @@
         
        
     </form>
-    <button class="badge badge-danger mr-2" (click)="deleteProduct()">
+    <button class="badge badge-danger mr-2 "  (click)="deleteProduct()">
         Delete
     </button>
     

@@ -3,7 +3,7 @@
   margin: auto;
   color: #405065;
   text-align: center;
-  padding-top: 30px;
+ 
   padding-left: 10px;
   padding-right: 10px;
   
@@ -14,9 +14,13 @@
 
 .form-group{
  
-  padding: 30px;
+  padding: 20px;
   max-width: 500px;
   margin:auto;
+}
+.list-group{
+  max-height: 400px;
+  overflow: auto;
 }
 
 .form-control {
@@ -34,15 +38,16 @@
 
 .badge{
   cursor: pointer;
+  padding: 10px;
 }
 div.imgProduct img{
   width: 100%;
-  height: auto;
+  height: 100%;
   margin:auto;
 }
 div.imgProduct{
     margin: auto;
-    
+    height: 300px;
     width: 300px;
     text-align: center;
 }
@@ -50,7 +55,24 @@ div.imgProduct{
 .detailsProduct{
   text-align: center;
 }
+.inner-addon { 
+  position: relative; 
+}
 
+/* style icon */
+.inner-addon .glyphicon {
+position: absolute;
+padding: 10px;
+pointer-events: none;
+color:darkcyan;
+}
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
 
 
 

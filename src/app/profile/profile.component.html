@@ -1,16 +1,22 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<div class="row">
+<div class="col-md-12" *ngIf="currentUser; else loggedOut">
     <header class="jumbotron">
       <h3>
-        <strong>{{ currentUser.username }}</strong> Profile
+        
+        <strong>{{ currentUser.username }}</strong> Profile <i class="glyphicon glyphicon-user"></i>
       </h3>
     </header>
     <p>
-      <strong>Token:</strong>
+      <strong> <i class="glyphicon glyphicon-lock"></i> Token:</strong>
       {{ currentUser.accessToken.substring(0, 20) }} ...
       {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
     </p>
     <p>
-      <strong>Email:</strong>
+      <strong> <i class="glyphicon glyphicon-envelope"></i> Email :</strong> 
       {{ currentUser.email }}
     </p>
     <p>
@@ -20,11 +26,11 @@
 
     <strong>Role:</strong>
     <ul>
-      <li *ngFor="let role of currentUser.roles">
+      <li *ngFor="let role of currentUser.roles" style="list-style-type:none;" >
         {{ role }}
       </li>
     </ul>
-    
+  </div>
   </div>
   
   <ng-template #loggedOut>

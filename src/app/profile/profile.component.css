@@ -1,0 +1,12 @@
+.jumbotron{
+    margin-top:20px ;
+    background-color: darkcyan;
+    color: white;
+    text-align: center;
+}
+.col-md-12{
+    margin-top: 20px;
+    background-color: teal;
+    color: white;
+    
+}

@@ -1,31 +1,60 @@
-<div class="title">
-    <h4 >Add details for product</h4>
-</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
 <div class="submit-form">
+    <div class="title">
+        <h4> <strong>Add details for product</strong></h4>
+    </div>
 
     <form (ngSubmit)="saveProduct()" [formGroup]="myForm">
     <div class="form-group">
         <label for="type">Type</label>
-        <input id="type" formControlName="type" class="form-control" type="text" />
-        <span *ngIf="!myForm.get('type').valid && hasErr">Type required!</span>
+        <input id="type" formControlName="type" class="form-control" type="text" placeholder="Fruits/Vegetables" />
+        <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="!myForm.get('type').valid && hasErr"
+          ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Type required!
+          </div>
     </div>
 
     <div class="form-group">
         <label for="name">Name</label>
-        <input id="name" formControlName="name" class="form-control" type="text" />
-        <span *ngIf="!myForm.get('name').valid && hasErr">Name required!</span>
+        <input id="name" formControlName="name" class="form-control" type="text" placeholder="Name" />
+        <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="!myForm.get('name').valid && hasErr"
+          ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Name required!
+          </div>
     </div>
 
     <div class="form-group">
         <label for="price">Price</label>
-        <input id="price" formControlName="price" class="form-control" type="number" required min="1" />
-        <span *ngIf="!myForm.get('price').valid && hasErr">Price required!</span>
+        <input id="price" formControlName="price" class="form-control" type="number" required min="1" placeholder="Price"/>
+        <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="!myForm.get('price').valid && hasErr"
+          ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Price required!
+          </div>
     </div>
 
     <div class="form-group">
         <label for="imgUrl">ImgURL</label>
-        <input id="imgUrl" formControlName="imgUrl" class="form-control" type="text" />
-        <span *ngIf="!myForm.get('imgUrl').valid && hasErr">ImgUrl required!</span>
+        <input id="imgUrl" formControlName="imgUrl" class="form-control" type="text" placeholder="Img URL" />
+        <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="!myForm.get('imgUrl').valid && hasErr"
+          ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            ImgURL required!
+          </div>
     </div>
     <button class="btn btn-success">Submit</button>
     <div class="form-group">
@@ -37,13 +66,14 @@
         Add failed: {{ errMessage }}
         </div>
     </div>
+    <div class ="form-group" *ngIf="submitted">
+        <h5>You submitted successfully!</h5>
+        <button class="btn btn-success" (click)="newProduct()">Add a new product</button>
+        </div>
     </form>
     </div>
     <br>
-    <div class ="form-group" *ngIf="submitted">
-    <h5>You submitted successfully!</h5>
-    <button class="btn btn-success" (click)="newProduct()">Add a new product</button>
-    </div>
+    
 
 <!--
 <div class="submit-form">

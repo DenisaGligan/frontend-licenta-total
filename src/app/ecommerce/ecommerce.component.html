@@ -1,16 +1,37 @@
-
 <div class="row">
-    <div class="col-md-2">
-        <app-filters #filtersC [hidden]="orderFinished"></app-filters>
+    <div class="col-md-2"[hidden]="orderFinished" >
+        <!--<app-filters (onClickFilter)=onClickSubmit($event)  #filtersC [hidden]="orderFinished"></app-filters>-->
+        <div class="card">
+            <div class="card-header text-center"> <strong>Filter</strong>
+            </div>
+            <div class="card-body">
+                <div class="submit-form">
+                    <form (ngSubmit)="getAllByType()" [formGroup]="myForm">
+                <div class="form-group">
+                    <label for="productType">Product Type</label>
+                    <input (ngModelChange)="checkInput()" type="text" id="productType" formControlName="productType" class="form-control" placeholder="fruits/vegetables">
+                </div>
+                <button class="btn btn-info btn-block" ng-disabled="myForm.$invalid">Submit</button>
+                </form>
+            </div>
+            <!--<button class="btn btn-primary btn-block" (click)="getAllByType()">Filter by Type</button>-->
+            </div>
+        </div>
+        
     </div>
+
     <div class="col-md-8">
         <app-products #productsC [hidden]="orderFinished"></app-products>
     </div>
+    
     <div class="col-md-2">
         <app-shopping-cart (onOrderFinished)=finishOrder($event) #shoppingCartC
                            [hidden]="orderFinished"></app-shopping-cart>
     </div>
     <div class="col-md-6 offset-3">
         <app-orders #ordersC [hidden]="!orderFinished"></app-orders>
+        <div class="bt" [hidden]="!orderFinished">
+            <button type="button" class="btn btn-info" (click)="goBack()">Back</button>
+        </div>
     </div>
 </div>

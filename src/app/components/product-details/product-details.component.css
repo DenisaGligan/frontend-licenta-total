@@ -1,12 +1,14 @@
 .form-control{
-    box-shadow: 0 10px 40px 0 #B0C1D9;
+    box-shadow: 0 7px 40px 0 #B0C1D9;
 }
 
 .edit-form {
-    padding-top: 50px;
+    padding: 20px;
     max-width: 500px;
     margin: auto;
     text-align: center;
+    background-color: darkcyan;
+   color: white;
 }
 .form-group{
     text-align: left;
@@ -19,16 +21,24 @@
     display: inline-block;
     width: 95px;
     margin-left: 5px;
-    margin-bottom: 9px;
+    margin-bottom: 15px;
     cursor: pointer;
     
 }
+
 .badge:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .badge{
-    margin: auto;
+    margin: 15px;
     cursor: pointer;
-    padding:10px 15px;
+    padding:15px 15px;
+   
+}
+.badge-danger{
+    background-color: red;
+}
+.badge-success{
+    background-color: green;
 }

@@ -2,7 +2,7 @@
 
 <ul>
     <li *ngFor="let order of orders.productOrders">
-        {{ order.product.name }} - {{ order.product.price }} RON x {{ order.quantity}} KG.
+        {{ order.product.name }} <img class="card-img-top" src={{order.product.imgUrl}}  alt=""> - {{ order.product.price }} RON x {{ order.quantity}} KG.
     </li>
 </ul>
 <h3 class="text-right">Total amount: {{ total }} RON</h3>
@@ -12,33 +12,34 @@
 
 <div class="form-group">
     <label for="adress">Adress</label>
-    <input id="adress" formControlName="adress" class="form-control" type="text" />
+    <input id="adress" formControlName="adress" class="form-control" type="text" placeholder="Address" />
     <span *ngIf="!myForm.get('adress').valid && hasErr">Adress required!</span>
 </div>
 
 
 <div class="form-group">
     <label for="telephone">Telephone</label>
-    <input id="telephone" formControlName="telephone" class="form-control" type="text" />
+    <input id="telephone" formControlName="telephone" class="form-control" type="text" placeholder="Telephone" />
     <span *ngIf="!myForm.get('telephone').valid && hasErr">Telephone required!</span>
 </div>
 
 <!--<button class="btn btn-primary btn-block" (click)="pay()" *ngIf="!paid">Pay</button>-->
-<button class="btn btn-success">Submit</button>
-    <div class="form-group">
-        <div
-        class="alert alert-danger"
-        role="alert"
-        *ngIf="!submitted && notSubmitted"
-        >
-        Order failed: {{ errMessage }}
+<div class="forbtn">
+    <button class="btn btn-success">Send Order</button>
+        <div class="form-group">
+            <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="!submitted && notSubmitted"
+                >
+            Order failed: {{ errMessage }}
         </div>
     </div>
+</div>
 </form>
+
 <div class="alert alert-success" role="alert" *ngIf="paid">
     <strong>Congratulation!</strong> You successfully made the order.
 </div>
 
-<div class="bt">
-    <button type="button" class="btn btn-info" (click)="goBack()">Back</button>
-</div>
+

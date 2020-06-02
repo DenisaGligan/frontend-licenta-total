@@ -9,7 +9,7 @@ label {
   }
   
   .card {
-    background-color: #f7f7f7;
+    background-color:rgb(5, 168, 168);
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
     margin-top: 50px;
@@ -19,6 +19,8 @@ label {
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    color: white;
+    box-shadow: 0 20px 50px 0 rgba(0,0,0,0.24), 0 20px 50px 0 rgba(0,0,0,0.19);
   }
   
   .profile-img-card {
@@ -30,3 +32,28 @@ label {
     -webkit-border-radius: 50%;
     border-radius: 50%;
   }
+  .inner-addon { 
+    position: relative; 
+  }
+  
+  /* style icon */
+  .inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+  color:darkcyan;
+  }
+  /* align icon */
+  .left-addon .glyphicon  { left:  0px;}
+  .right-addon .glyphicon { right: 0px;}
+  
+  /* add padding  */
+  .left-addon input  { padding-left:  30px; }
+  .right-addon input { padding-right: 30px; }
+  
+  .btn{
+    background-color: darkcyan;
+  }
+  .btn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

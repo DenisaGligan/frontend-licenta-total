@@ -1,13 +1,21 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 
 <div class="list row">
     <div class="col-md-12">
       <div class="form-group">
-        <input class="form-control" type="text" name="search" [(ngModel)]="status" autocomplete="off" placeholder="&#61442;  Start searching for an order status">
+        <div class="inner-addon left-addon">
+          <i class="glyphicon glyphicon-search"></i>
+        <input class="form-control" type="text" name="search" [(ngModel)]="status" autocomplete="off" placeholder="  Start searching for an order status">
+          </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <h4>Orders List</h4>
-      <ul class="list-group">
+    <div class="col-md-10">
+      <!--<h4>Orders List</h4>-->
+      <ul class="list-group" style=" max-height: 550px;
+      overflow: auto;">
         <li
           class="list-group-item"
           *ngFor="let order of orders | filter:status; let i = index"
@@ -21,8 +29,8 @@
             Telephone: {{ order.telephone }}
             Status: {{ order.status }}</strong>
             
-            <ul>
-                <li *ngFor ="let orderProduct of order.orderProducts">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor ="let orderProduct of order.orderProducts">
                     {{ orderProduct.product.name }} 
                     <img class="card-img-top" src={{orderProduct.product.imgUrl}}  alt="">
                    Price: {{ orderProduct.product.price }}
@@ -34,7 +42,7 @@
       </ul>
     </div>
   
-    <div class="col-md-6">
+    <div class="col-md-2">
   
         <button type="submit" class="badge badge-success" (click)="updateOrder()">
             Update
