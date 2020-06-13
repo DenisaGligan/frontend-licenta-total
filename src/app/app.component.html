@@ -50,8 +50,73 @@
       </li>
     </ul>
   </nav>
-  
+
+  <div class="card col-md-2 text-center" *ngIf="isLoggedIn">
+    <div class="card-header "> <strong>Change font</strong> </div>
+      <div class="card-body">
+        <label>Font-Family</label>
+      <select (change)="changeFont($event)" id="sel" [(ngModel)]="selectedFont"  class="form-control" size="7">
+        <option value="Times New Roman" >Times New Roman</option>
+        <option value="Georgia" >Georgia</option>
+        <option value="Arial"  >Arial</option>
+        <option value="Verdana" >Verdana</option>
+        <option value="algerian">Algerian</option>
+        <option value="Lucida Console" >Lucida Console</option>
+        <option value="Arial Black">Arial Black</option>
+      </select> 
+      <!--You selected {{selectedFont}}-->
+      <br>
+
+      <label>Font-Size</label>
+      <select (change)="changeDim($event)" id="sel2" [(ngModel)]="selectedFont2"  class="form-control" size="5">
+        <option value="x-small" >x-small</option>
+        <option value="small" >small</option>
+        <option value="medium"  >medium</option>
+        <option value="large" >large</option>
+        <option value="x-large" >x-large</option>
+       
+      </select> 
+      <!--You selected {{selectedFont2}}-->
+      <br>
+      <label>Font-Style</label>
+      <select (change)="changeStyle($event)" id="sel3" [(ngModel)]="selectedFont3"  class="form-control" size="2">
+        <option value="normal" >normal</option>
+        <option value="italic" >italic</option>
+       
+      </select> 
+     <!-- You selected {{selectedFont3}}-->
+
+      <br>
+      <label>Font-Weight</label>
+      <select (change)="changeWeight($event)" id="sel4" [(ngModel)]="selectedFont4"  class="form-control"size="2" >
+        <option value="normal" >normal</option>
+        <option value="bold" >bold</option>
+       
+      </select> 
+      <!--You selected {{selectedFont4}}-->
+      <br>
+      <!--<label>Font-Color</label>
+      <select (change)="changeColor($event)" id="sel5" [(ngModel)]="selectedFont5"  class="form-control" >
+        <option value="red" >red</option>
+        <option value="black" >black</option>
+       
+      </select> 
+      You selected {{selectedFont5}}-->
+    </div>
     
+  </div>
+  
+  <!--<form>
+    <mat-form-field>
+      <mat-label>Change font</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="font">
+        <mat-option *ngFor="let font of fonts" [value]="font.value">
+          {{font.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p> Selected font: {{selectedValue}} </p>
+  </form>-->
 
   <div class="container">
     <router-outlet></router-outlet>

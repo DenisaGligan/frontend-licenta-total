@@ -13,6 +13,7 @@ export class AllOrdersComponent implements OnInit {
   currentIndex = -1;
   message = '';
   status;
+  id;
   submitted = false;
   notSumbitted = false;
 

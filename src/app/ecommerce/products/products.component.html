@@ -14,18 +14,18 @@
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of productOrders | filter:name">
         <div class="card text-center">
             <div class="card-header">
-                <h4>{{order.product.name}}</h4>
+                <p>{{order.product.name}}</p>
             </div>
             <div class="card-body">
 
-                <a href="#"><img class="card-img-top" src={{order.product.imgUrl}} alt=""></a>
-                <h5 class="card-title">{{order.product.price}} RON/KG</h5>
+                <img class="card-img-top" src={{order.product.imgUrl}} alt={{order.product.description}}>
+                <p class="card-title">{{order.product.price}} RON/KG</p>
                 <div class="row">
                     <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
                         <input id="quantity" type="number" min="0" class="form-control" [(ngModel)]=order.quantity>
                     </div>
                     <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
-                        <button  type="button" class="btn btn-info btn-sm" (click)="addToCart(order)"
+                        <button  type="button" class="btn btn-info btn-block btn-sm" (click)="addToCart(order)"
                                 [disabled]="order.quantity <= 0" > Add To Cart <span class="glyphicon glyphicon-shopping-cart"></span>
                         </button>
                     </div>

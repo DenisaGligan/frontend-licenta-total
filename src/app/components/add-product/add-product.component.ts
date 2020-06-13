@@ -13,7 +13,8 @@ export class AddProductComponent implements OnInit {
     type: '',
     name: '',
     price: null,
-    imgUrl: ''
+    imgUrl: '',
+    description: ''
   };
   submitted = false;
   notSubmitted =false;
@@ -29,7 +30,8 @@ export class AddProductComponent implements OnInit {
       type: ['', Validators.required],
       name: ['', Validators.required],
       price: [null,[ Validators.required, Validators.min(1)]],
-      imgUrl: ['', Validators.required]
+      imgUrl: ['', Validators.required],
+      description: ['', [Validators.required, Validators.minLength(5)]]
 
     });
   }

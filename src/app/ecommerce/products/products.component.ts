@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(order: ProductOrder) {
+      console.log(order.product.description);
       this.ecommerceService.SelectedProductOrder = order;
       this.selectedProductOrder = this.ecommerceService.SelectedProductOrder;
       this.productSelected = true;
@@ -107,5 +108,6 @@ export class ProductsComponent implements OnInit {
     );
 
   }
+  
 
 }

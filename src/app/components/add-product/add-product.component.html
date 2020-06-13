@@ -56,6 +56,17 @@
             ImgURL required!
           </div>
     </div>
+    <div class="form-group">
+        <label for="description">Alternative text</label>
+        <input id="description" formControlName="description" class="form-control" type="text" placeholder="Alternative text for image" />
+        <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="!myForm.get('description').valid && hasErr"
+          ><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Alternative text required!
+          </div>
+    </div>
     <button class="btn btn-success">Submit</button>
     <div class="form-group">
         <div

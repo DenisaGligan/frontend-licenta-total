@@ -19,12 +19,19 @@ export class EcommerceService {
 
     private total: number;
 
+    cartItems = [];
+
     ProductOrderChanged = this.productOrderSubject.asObservable();
     OrdersChanged = this.ordersSubject.asObservable();
     TotalChanged = this.totalSubject.asObservable();
 
     constructor(private http: HttpClient) {
     }
+
+    addToCart(product){
+        this.cartItems.push(product);
+    }
+
 
     getAllProducts() {
         return this.http.get(this.productsUrl);
